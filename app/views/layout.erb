@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta charset="utf-8">
+    <title>Guitar Gallery</title>
 
-    <title>SinatraGg_2</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <header>
+    <center>
+      <h1>The Guitar Gallery</h1>
 
-        <%= yield %>
-
-      <footer class="branding">
-        <small>&copy; 2020 <strong>SinatraGg_2</strong></small>
-      </footer>
-    </div>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!--[if lt IE 7]>
-      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-    <![endif]-->
+       <a href="/auctions">All Auctions</a>
+       <a href="/guitars">All Guitars</a>
+       <a href="/guitars/new">Add Guitar</a>
+       <a href="/auctions/new">Add Auction</a>
+        <% if logged_in? %>
+        <a href="/users/<%=current_user.id%>">Account</a>
+        <a href="/logout">Logout</a>
+        <% else %>
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+        <% end %>
+     
+    </header>
+    <%= yield %>
   </body>
 </html>

@@ -1,0 +1,6 @@
+<div class="auction-list">
+  <h1>Auctions</h1>
+  <% @auctions.each do |auction| %>
+    <p><a href="/auctions/<%= auction.slug %>"><%= auction.title %></a></p>
+  <% end %>
+</div>
