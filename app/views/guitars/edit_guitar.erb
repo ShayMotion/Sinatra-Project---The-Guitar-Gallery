@@ -1,0 +1,26 @@
+<center> <div class="form">
+<br></br>
+<br></br>
+<br></br>
+  <h1>Edit Guitar</h1>
+  <form action="/guitars/<%=@guitar.id%>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <div class="form-group">
+      <br></br>
+      <label>Brand</label>
+      <input type="text" class="form-control" name="Brand" required value="<%=@guitar.brand%>"><br>
+      <label>Model</label>
+      <input type="text" class="form-control" name="Model" required value="<%=@guitar.model%>"><br>
+      <label>Year</label>
+      <input type="text" class="form-control" name="Year" required value="<%=@guitar.year%>"><br>
+      <label>Price: $</label>
+      <input type="number" class="form-control" name="Price" required value="<%=@guitar.price.to_i%>"><br>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <p><form action="/guitars/<%=@guitar.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Guitar">
+  </form></p>
+</div>

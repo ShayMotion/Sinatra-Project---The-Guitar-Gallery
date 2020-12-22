@@ -1,6 +1,11 @@
-<div class="auction-list">
-  <h1>Auctions</h1>
+<center><div class="auction-list">
+<br></br>
+<br></br>
+<br></br>
+  <h1>All Auctions</h1>
   <% @auctions.each do |auction| %>
-    <p><a href="/auctions/<%= auction.slug %>"><%= auction.title %></a></p>
+    <br></br>
+    <p><a href="/auctions/<%= auction.id %>"><%= auction.title %><br></br> Start Date: <%= auction.start_date.strftime("%m-%d-%Y") %><br></br>  End Date: <%= auction.end_date.strftime("%m-%d-%Y") %> </a></p>
+    <br></br>
   <% end %>
 </div>

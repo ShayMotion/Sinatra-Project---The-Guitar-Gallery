@@ -6,14 +6,17 @@
 
   </head>
   <body>
+
     <header>
     <center>
       <h1>The Guitar Gallery</h1>
+      <h3>Online Auction & Database For Rare Guitars</h3>
 
        <a href="/auctions">All Auctions</a>
+       <a href="/auctions/new">Add Auction</a>
        <a href="/guitars">All Guitars</a>
        <a href="/guitars/new">Add Guitar</a>
-       <a href="/auctions/new">Add Auction</a>
+     
         <% if logged_in? %>
         <a href="/users/<%=current_user.id%>">Account</a>
         <a href="/logout">Logout</a>

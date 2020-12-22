@@ -1,0 +1,41 @@
+<center><div class="row auction">
+  <div class="col-md-12">
+  <br> 
+  </br>
+  <br> 
+  </br>
+  <div class="col-md-6">
+   
+    <br></br>
+   
+    <label>Auction Title:</label>
+    
+    <h3 class="auction-title"><%= @auction.title %></h3>
+    <br></br>
+    <label>Start Date:</label>
+    <h3 class="auction-start-date"><%= @auction.start_date.strftime("%m-%d-%Y") %></h3>
+    <br></br>
+    <label>End Date:</label>
+    <h3 class="auction-end-date"><%= @auction.end_date.strftime("%m-%d-%Y") %>
+    <br></br>
+ 
+    Added by: <%= @auction.user.username %></h3>
+    <br></br>
+    <label>Guitars Available For This Auction:</label>
+  <% @auction.guitars.each do |guitar| %>
+    <p><%= guitar.auction.title %> - <%= guitar.brand %>  - <%= guitar.model %> - <a href="/guitars/<%= guitar.id %>">View</a> / <a href="/guitars/<%= guitar.id %>/edit">Edit</a></p>
+  <% end %>
+
+  
+
+  <%if logged_in? && current_user.auctions.include?(@auction)%>
+    <div class="col-md-12">
+    <br></br>
+      <p><a href="/auctions/<%= @auction.id %>/edit">Edit This Auction</a></p>
+      <br></br>
+      <p><a href="/guitars/new">Add A Guitar To An Auction</a></p>
+      <br></br>
+  
+    </div>
+  <%end%>
+</div>

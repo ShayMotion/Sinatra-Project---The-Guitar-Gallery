@@ -1,0 +1,25 @@
+<center><div class="user">
+<br></br>
+  <h2>Your Account</h2>
+  <p>Username: <%= @user.username %></p>
+  <p>Email: <%= @user.email %></p>
+  <p><a href="/users/<%=@user.id%>/edit">Edit Your Account</a></p>
+  <br></br>
+  <br></br>
+  <h2>Your Auctions</h2>
+  <% @user.auctions.each do |auction| %>
+
+    <p> <p><a href="/auctions/<%= auction.id %>"> <%= auction.title %>
+ - View /</a> <a href="/auctions/<%= auction.id %>/edit">Edit</a>
+  <% end %>
+  <br></br>
+  <br></br>
+    <p><a href="/auctions/new">Create A New Auction</a></p>
+    <br></br>
+    <br></br>
+  <h2>Your Guitars</h2>
+  <% @user.guitars.each do |guitar| %>
+    <p><%= guitar.auction.title %> - <%= guitar.brand %>  - <%= guitar.model %> - <a href="/guitars/<%= guitar.id %>">View</a> / <a href="/guitars/<%= guitar.id %>/edit">Edit</a></p>
+  <% end %>
+  <p><a href="/guitars/new">Add Guitar</a></p>
+</div>

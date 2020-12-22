@@ -1,0 +1,21 @@
+<center><div class="form">
+  <h1>Edit Auction</h1>
+  <form action="/auctions/<%= @auction.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <div class="form-group">
+      <input type="text" class="form-control" name="title" required value="<%=@auction.title%>" placeholder="Auction Title"><br>
+      <br></br>
+      <input type="date" class="form-control" name="start_date" required value="<%=@auction.start_date%>" placeholder="Start Date"><br>
+      <br></br>
+      <input type="date" class="form-control" name="end_date" required value="<%=@auction.end_date%>" placeholder="End Date"><br>
+      <br></br>
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <p><form action="/auctions/<%=@auction.id%>" method="post">
+  <br></br>
+  <br></br>
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Auction">
+  </form></p>
+</div>

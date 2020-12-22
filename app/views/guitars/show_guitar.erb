@@ -1,0 +1,20 @@
+<center><div class="guitar">
+<br></br>
+<br></br>
+<br></br>
+  <h1>Guitar Details</h1>
+<p>Auction Title: <%= @guitar.auction.title %></p>
+
+  <p>Year: <%= @guitar.year %></p>
+  <p>Brand: <%= @guitar.brand %></p>
+  <p>Model:<%= @guitar.model %></p>
+  <p>Price: $<%= @guitar.price.to_i %></p>
+  <% if logged_in? && current_user.guitars.include?(@guitar)%>
+  <p><a href="/guitars/<%= @guitar.id %>/edit">Edit</a></p>
+  <p><form action="/guitars/<%=@guitar.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Guitar">
+    <p><a href="/users/<%=current_user.id%>">Your Account</a></p>
+    </form></p>
+  <% end %>
+</div>

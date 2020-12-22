@@ -1,0 +1,30 @@
+<center><div class="form">
+<br> 
+</br>
+<br> 
+</br>
+  <h2>Add A Guitar To An Existing Auction</h2>
+  <form action="/guitars" method="post">
+    <div class="form-group">
+
+      <input class="form-control" list="auctions" name="auction[title]" required placeholder="Auction Title">
+      <datalist id="auctions">
+        <%current_user.auctions.each do |auction|%>
+            <label> </label>
+          <option value="<%=auction.title%>"><%=auction.title%></option>
+        <%end%>
+      </datalist>
+      <br></br>
+      
+     
+      <input type="text" class="form-control" name="brand" required placeholder="Guitar Brand"><br>
+      <label> </label>
+      <input type="text" class="form-control" name="model" required placeholder="Model"><br>
+      <label> </label>
+      <input type="number" class="form-control" name="year" required placeholder="Year"><br>
+      <label>$</label>
+      <input type="text" class="form-control" name="price" placeholder="Auction Price" rows="6"></textarea><br>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

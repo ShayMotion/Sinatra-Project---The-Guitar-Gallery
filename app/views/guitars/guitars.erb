@@ -1,0 +1,10 @@
+<center><div class="guitar-list">
+<br> 
+</br>
+<br> 
+</br>
+  <h2>Current Guitars For Auction</h2>
+  <% @guitars.each do |guitar| %>
+    <p><a href="/guitars/<%= guitar.id %>"> <%= guitar.year %> - <%= guitar.brand %>_<%= guitar.model %> - $<%= guitar.price.to_i %></a></p>
+  <% end %>
+</div>
