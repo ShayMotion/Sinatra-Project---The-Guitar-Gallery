@@ -8,7 +8,7 @@ class AuctionsController < ApplicationController
     post '/auctions' do
       @auction = current_user.auctions.new(title: params[:title], start_date: params[:start_date], end_date: params[:end_date])
       if @auction.save
-        redirect to "/auctions/#{@auction.slug}"
+        redirect to "/auctions/#{@auction.id}"
       else
         redirect to '/auctions/new'
       end

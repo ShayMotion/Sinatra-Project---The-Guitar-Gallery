@@ -20,11 +20,12 @@ class GuitarsController < ApplicationController
     end
   
     post '/guitars' do
-      @guitar = Guitar.new(auction: Auction.find_or_create_by(title: params[:auction][:title], user_id: current_user.id),             
-      brand: params[:brand].strip,
-      model: params[:model].strip,
-      year: params[:year].strip,
-      price: params[:price].to_f)
+      @guitar = Guitar.new(
+        auction: Auction.find_or_create_by(title: params[:auction][:title], user_id: current_user.id),             
+        brand: params[:brand].strip,
+        model: params[:model].strip,
+        year: params[:year].strip,
+        price: params[:price].to_f)
       if @guitar.save && @guitar.auction.valid?
         redirect to "/guitars/#{@guitar.id}"
       else
@@ -52,6 +53,7 @@ class GuitarsController < ApplicationController
       @guitar.model = params[:model]
       @guitar.year = params[:year]
       @guitar.price = params[:price]
+      # binding.pry
       if logged_in? && current_user.guitars.include?(@guitar)
         @guitar.save
         redirect to "/guitars/#{@guitar.id}"
